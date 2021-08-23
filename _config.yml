@@ -244,6 +244,7 @@ whitelist:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-toc
 
 
 # Archives
@@ -282,7 +283,11 @@ compress_html:
   ignore:
     envs: development
 
+collections:
+  authors:
+    output: true
 
+    
 # Defaults
 defaults:
   # _posts
@@ -296,3 +301,37 @@ defaults:
       comments: # true
       share: true
       related: true
+      toc: true
+      toc_label: "My Table of Contents"
+      toc_icon: "cog"
+  
+
+  - scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: "author"
+      author_profile: true
+
+  - scope:
+      path: ""
+      type: single
+    values:
+      layout: single
+      author_profile: true
+      toc: true
+      toc_label: "My Table of Contents"
+      toc_icon: "cog"
+
+  - scope:
+      path: ""
+      type: home
+    values:
+      layout: home
+      author_profile: true
+      toc: true
+      toc_label: "My Table of Contents"
+      toc_icon: "cog"
+      sidebar:
+      title: "Sample Title"
+      nav: sidebar-sample
